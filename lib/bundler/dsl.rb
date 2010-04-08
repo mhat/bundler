@@ -18,7 +18,7 @@ module Bundler
     def gem(name, *args)
       options = Hash === args.last ? args.pop : {}
       version = args.last || ">= 0"
-      if group = options[:groups] || options[:group]
+      if group = options.delete(:groups) || options[:group]
         options[:group] = group
       end
 
